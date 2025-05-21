@@ -1,0 +1,6 @@
+# Ignore XCFrameworks
+*.xcframework/
+
+# Ignore XCFramework zip files
+*.xcframework.zip
+.DS_Store
