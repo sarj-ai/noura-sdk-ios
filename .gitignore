@@ -4,3 +4,5 @@
 # Ignore XCFramework zip files
 *.xcframework.zip
 .DS_Store
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.swiftpm/xcode/package.xcworkspace/xcuserdata/shahbaz.xcuserdatad/UserInterfaceState.xcuserstate
