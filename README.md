@@ -32,8 +32,36 @@ Initialize the SDK in your app's startup code:
 ```swift
 import NouraSDK
 
-// Configure the SDK with your API key
-NouraSDKManager.shared.configure(baseURL: URL(string: "https://sandbox.noura.ai"), apiKey: "YOUR_API_KEY")
+// Create a callback handler to receive events and errors
+class AppNouraCallbackHandler: NouraSDKCallback {
+    func onError(_ error: NouraSDKError) {
+        print("NouraSDK Error: \(error.localizedDescription)")
+        // Handle SDK errors in your app
+    }
+    
+    func onEvent(_ event: NouraSDKEvent) {
+        print("NouraSDK Event: \(event.eventName)")
+        // Log events to your analytics system
+    }
+}
+
+// Configure the SDK with your API key, token, and callback handler
+NouraSDKManager.shared.configure(
+    baseURL: URL(string: "https://sandbox.noura.ai"),
+    apiKey: "YOUR_API_KEY",
+    token: getUserAuthToken(), // Optional user authentication token
+    callback: AppNouraCallbackHandler()
+)
+```
+
+You can also update the user token later:
+
+```swift
+// Update token when user logs in
+NouraSDKManager.shared.setToken(newUserToken)
+
+// Clear token when user logs out
+NouraSDKManager.shared.setToken(nil)
 ```
 
 ### 2. Present the Chat Interface
