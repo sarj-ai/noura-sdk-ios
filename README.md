@@ -2,7 +2,7 @@
 
 NouraSDK is a Swift framework for building interactive AI-powered experiences in iOS applications.
 
-**Current Version: 0.2.1**
+**Current Version: 0.2.2**
 
 ## Overview
 
@@ -47,9 +47,10 @@ class AppNouraCallbackHandler: NouraSDKCallback {
 
 // Configure the SDK with your API key, token, and callback handler
 NouraSDKManager.shared.configure(
-    baseURL: URL(string: "https://sandbox.noura.ai"),
+    environment: .sandbox, // .production
+    language: .english, // .arabic
     apiKey: "YOUR_API_KEY",
-    token: getUserAuthToken(), // Optional user authentication token
+    token: "", // Optional user authentication token
     callback: AppNouraCallbackHandler()
 )
 ```
