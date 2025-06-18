@@ -47,7 +47,7 @@ class AppNouraCallbackHandler: NouraSDKCallback {
 
 // Configure the SDK with your API key, token, and callback handler
 NouraSDKManager.shared.configure(
-    environment: .sandbox, // .production
+    baseUrl: "https://noura-oyhlodgmcq-wx.a.run.app/",
     language: .english, // .arabic
     apiKey: "YOUR_API_KEY",
     userId: "user_id",
