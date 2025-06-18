@@ -50,6 +50,9 @@ NouraSDKManager.shared.configure(
     environment: .sandbox, // .production
     language: .english, // .arabic
     apiKey: "YOUR_API_KEY",
+    userId: "user_id",
+    deviceId: "device_id",
+    vbBaseUrl: "vb_base_url",
     token: "", // Optional user authentication token
     callback: AppNouraCallbackHandler()
 )
