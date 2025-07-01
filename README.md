@@ -2,7 +2,15 @@
 
 NouraSDK is a Swift framework for building interactive AI-powered experiences in iOS applications.
 
-**Current Version: 0.3.0**
+**Current Version: 0.3.1**
+
+## 🚨 Important Dependency Requirements
+
+NouraSDK requires the following dependencies to be added manually to your project:
+- **Lottie 4.5.2** - For animations
+- **LiveKit 2.6.1** - For voice features
+
+See installation instructions below for setup details.
 
 ## Overview
 
@@ -20,8 +28,34 @@ NouraSDK provides a pre-built chat interface and AI capabilities that can be eas
 ### Using Swift Package Manager
 
 1. In Xcode, select File > Add Package Dependencies...
-2. Enter the package URL: `https://github.com/sarj-ai/noura-sdk-ios.git`
-3. Follow the prompts to select the version and target
+2. Add the NouraSDK package: `https://github.com/sarj-ai/noura-sdk-ios.git`
+3. Add the required dependencies:
+   - Lottie: `https://github.com/airbnb/lottie-ios` (version 4.5.2)
+   - LiveKit: `https://github.com/livekit/client-sdk-swift.git` (version 2.6.1)
+4. Follow the prompts to select the versions and targets
+
+**Important**: You must add both Lottie and LiveKit dependencies for the SDK to work properly.
+
+### Package.swift Integration
+
+If using Package.swift, add all three dependencies:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/sarj-ai/noura-sdk-ios.git", from: "0.3.0"),
+    .package(url: "https://github.com/airbnb/lottie-ios", exact: "4.5.2"),
+    .package(url: "https://github.com/livekit/client-sdk-swift.git", exact: "2.6.1")
+]
+```
+
+### Required Permissions
+
+Add the following permissions to your app's Info.plist for voice features:
+
+```xml
+<key>NSMicrophoneUsageDescription</key>
+<string>This app needs microphone access for voice conversations with Noura AI.</string>
+```
 
 ## SDK Integration
 
@@ -120,6 +154,8 @@ Use the provided `NouraSDKChatView` in your SwiftUI navigation:
 ```swift
 import SwiftUI
 import NouraSDK
+import Lottie
+import LiveKit
 
 // Present the chat view in a navigation context
 .navigationDestination(isPresented: $showChatbot) {
@@ -145,18 +181,42 @@ The SDK includes VisionBank (VB) custom fonts with the following weights:
 - Regular, Medium, SemiBold, Bold
 - Available in both regular and italic variants
 
+## Features
+
+- 🤖 **AI Chat Interface** - Pre-built chat UI with Noura AI
+- 🗣️ **Voice Conversations** - Real-time voice chat with AI (requires LiveKit)
+- 🎨 **Lottie Animations** - Enhanced UI with smooth animations (requires Lottie)
+- 🌍 **Multi-language Support** - English and Arabic with RTL support
+- 🎭 **Theme Support** - Light, dark, and system themes
+- 🔒 **Secure Authentication** - Token-based user authentication
+- 📱 **iOS 16.0+** - Modern iOS compatibility
+
 ## Usage Notes
 
 - The `NouraSDKChatView` provides a pre-built chat interface that ensures a consistent user experience
+- **Voice features require microphone permission** in your app's Info.plist
+- **Manual dependency setup required** - Lottie and LiveKit must be added separately
 - The SDK supports both English and Arabic localization with dynamic language switching
 - Automatic theme switching based on device appearance settings
 - Custom VB font integration throughout the interface
-- Lottie animations for enhanced user experience
 - Session types control available functionality (onboarding vs full chat)
 - Authentication requirements vary by session type (see Authentication Requirements above)
 - Language and theme can be changed dynamically without reconfiguration
 - The SDK requires a valid API key for authentication
 - Minimum deployment target is iOS 16.0
+
+## Troubleshooting
+
+### Build Errors
+If you encounter build errors:
+1. ✅ Ensure you've added both Lottie (4.5.2) and LiveKit (2.6.1) dependencies
+2. 🧹 Clean build folder (⌘+Shift+K) and rebuild
+3. 📱 Test on physical device for voice features
+
+### Voice Features Not Working
+1. ✅ Verify microphone permission in Info.plist
+2. ✅ Confirm LiveKit dependency is properly added
+3. 📱 Test on real device (voice requires hardware microphone)
 
 ---
 
