@@ -15,8 +15,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "NouraSDK",
-            url: "https://storage.googleapis.com/sarj-sandbox-public/NouraSDK/iOS/v0.3.1/NouraSDK.xcframework.zip",
-            checksum: "5e30cbe33da29e047d253717377640987486bdb698fbaff26b0952390ac96cf4"
+            url: "https://storage.googleapis.com/sarj-sandbox-public/NouraSDK/iOS/v0.3.2/NouraSDK.xcframework.zip",
+            checksum: "72abb63f6f8fb59262f907750ed41155334134a07d15ea49678264855d400e4c"
         )
     ]
 )
