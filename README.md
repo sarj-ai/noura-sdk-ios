@@ -2,7 +2,7 @@
 
 NouraSDK is a Swift framework for building interactive AI-powered experiences in iOS applications.
 
-**Current Version: 0.3.3**
+**Current Version: 0.3.4**
 
 ## 🚨 Important Dependency Requirements
 
